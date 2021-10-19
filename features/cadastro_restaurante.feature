@@ -30,3 +30,4 @@ When os campos “nome”, “telefone”, “email” e “ lista de endereço�
 And o campo “ID” está preenchido com “123456789”
 And “João” confirma o cadastro do restaurante
 Then o sistema exibe uma mensagem de erro de cadastro duplicado
+And "João" está na "página do usuário"
