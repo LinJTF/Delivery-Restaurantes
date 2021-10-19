@@ -22,13 +22,13 @@ When “João” seleciona a opção de remover restaurante
 Then o sistema exibe uma mensagem de confirmação da remoção
 
 Scenario: erro de cadastro de restaurante já existente
-Given o usuário “João” deseja cadastrar o restaurante “Spettus” no sistema
-And ele está na “página do usuário”
+Given o usuário "João" deseja cadastrar o restaurante "Spettus" no sistema
+And ele está na "página do usuário"
 And ele selecionou a opção de cadastrar restaurante
-And o restaurante “Atlântico” possui o ID “123456788”
-When os campos “nome”, “telefone”, “email” e “ lista de endereço”, “preço”, “descrição” e “lista de comidas servidas” estão preenchidos
-And o campo “ID” está preenchido com “123456789”
-And “João” confirma o cadastro do restaurante
+And o restaurante "Atlântico" possui o ID "123456788"
+When os campos "nome", "telefone", "email" e "lista de endereço", "preço", "descrição" e "lista de comidas servidas" estão preenchidos
+And o campo "ID" está preenchido com "123456789"
+And "João" confirma o cadastro do restaurante
 Then o sistema exibe uma mensagem de erro de cadastro duplicado
 And "João" está na "página do usuário"
 
