@@ -41,9 +41,4 @@ When os campos "nome", "telefone", "email" e "lista de endereço", "preço", "de
 And o campo "ID" está preenchido com "123456789"
 And "João" confirma a atualização do cadastro do restaurante
 Then o sistema exibe uma mensagem de erro de atualização de cadastro duplicado
-<<<<<<< HEAD
 And "João" está na “página do restaurante” do "Spettus” no sistema"
-=======
-
-testes
->>>>>>> 7743a69 (useless2)
