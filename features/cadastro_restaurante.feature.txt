@@ -1,0 +1,28 @@
+Cenário: Cadastro de múltiplos endereços para o restaurante, com sucesso
+Given “Vinicius” está na página de “Cadastro de Restaurante”
+When os campos obrigatórios “ID, nome, telefone, email, lista de endereços, preço, descrição e cardápio” são preenchidos com “007”, “Grande’s Food”, “998437236”, “grandesfood@gmail.com”, “av. rui barbosa, 42, casa amarela, recife, 329848.8347 - 287583.9987”, “R$20,00”, “Molho especial”, “come’s e bebe’s”
+And no campo “endereço” é selecionada a opção “múltiplos endereços”
+Then “Vinicius” adiciona o endereço “av.rosa e silva, 300, macaxeira, recife, 429848.8347 - 547583.9987”
+And “Vinicius” pode visualizar a lista de endereços com sucesso.
+
+
+Cenário: Falha ao cadastrar restaurante, campos obrigatórios faltando
+Given “Vinicius” está na página de “Cadastro de Restaurante”
+When os campos obrigatórios “ID, nome, telefone, email, lista de endereços, preço e descrição” são preenchidos com “007”, “Grande’s Food”, “998437236”, “grandesfood@gmail.com”, “av. rui barbosa, 42, casa amarela, recife, 329848.8347 - 287583.9987”, “R$20,00”, “Molho especial”
+Then o sistema acusa o erro “Campo faltando!”
+And o campo “cardápio” fica marcado
+
+
+Cenário: Falha ao cadastrar restaurante, campo(s) inválido(s)
+Given “Vinicius” está na página de “Cadastro de Restaurante”
+When os campos obrigatórios “ID, nome, telefone, email, lista de endereços, preço, descrição e cardápio” são preenchidos com “007”, “Grande’s Food”, “998437236”, “grandesfood@gmail.com”, “av. rui barbosa, 42, casa amarela, recife, 329848.8347 - 287583.9987”, “R$20,00”, “Molho especial”, “come’s e bebe’s”
+And o número “998437236” é inexistente
+Then o sistema acusa o erro “Campo inválido”
+And o campo “número” fica marcado
+
+
+Cenário: Erro na remoção de restaurante, pedido ainda pendente
+Given “Vinicius” está na página de “Remover Restaurante”
+When “Vinicius” seleciona a opção para remover
+And ainda existe um pedido pendente para o restaurante
+Then o sistema acusa o erro “Impossível remover, ainda restam pedidos”
