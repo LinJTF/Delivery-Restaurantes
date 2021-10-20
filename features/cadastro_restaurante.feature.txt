@@ -41,3 +41,10 @@ Given “Vinicius” está na página de “Cadastro de Restaurante”
 When os campos obrigatórios “ID, nome, telefone, email, lista de endereços, preço, descrição e cardápio” são preenchidos com “007”, “Grande’s Food”, “998437236”, “grandesfood@gmail.com”, "-", “R$20,00”, “Molho especial”, “come’s e bebe’s”
 Then o sistema acusa o erro "Sem lista de endereços!"
 And o campo "lista de endereços" fica marcado
+
+Cenário: Falha ao cadastrar restaurante, campo email inválido.
+Given “Vinicius” está na página de “Cadastro de Restaurante”
+When os campos obrigatórios “ID, nome, telefone, email, lista de endereços, preço, descrição e cardápio” são preenchidos com “007”, “Grande’s Food”, “998437236”, “grandesfood”, “av. rui barbosa, 42, casa amarela, recife, 329848.8347 - 287583.9987”, “R$20,00”, “Molho especial”, “come’s e bebe’s”
+And o email “grandesfood” é inválido por formato
+Then o sistema acusa o erro “Campo inválido”
+And o campo "email" fica marcado
